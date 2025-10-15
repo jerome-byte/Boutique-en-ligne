@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-include "config/commandes.php";
+
+require_once("config/connexion.php"); // Remonte au dossier parent (htdocs/) puis va dans config/
+require_once("config/commandes.php");
+
 
 if(isset($_SESSION['xRttpHo0greL39']))
 {
