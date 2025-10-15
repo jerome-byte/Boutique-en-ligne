@@ -1,6 +1,6 @@
 <?php
 
-$hostname='sql101.infinityfree.com';
+$hostname='localhost';
 $dbname='if0_40135203_e_commerce';
 $username='if0_40135203';
 $password='tPdpnzr2aVgdj';
