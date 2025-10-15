@@ -1,9 +1,5 @@
 <?php
 
-// J'ai conservé votre chemin original, mais rappelez-vous que 
-// l'utilisation de $_SERVER['DOCUMENT_ROOT'] est plus sûre sur InfinityFree :
-// require_once($_SERVER['DOCUMENT_ROOT'] . "/config/connexion.php"); 
-
 require_once("config/connexion.php"); 
 require_once("config/commandes.php"); 
 
@@ -148,6 +144,38 @@ $Produits = afficher();
 </header>
 
 <main>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+      <?php foreach($Produits as $produit): ?> 
+        <div class="col">
+          <div class="card shadow-sm">
+            <h3><?= $produit->nom ?></h3>
+            <img src="<?= $produit->image ?>" style="width: 100% ,height: 100% ,object-fit: cover ,top: 0 ,left: 0">
+
+            <div class="card-body">
+               <p class="card-text"><?= substr($produit->description, 0, 160); ?>...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="produit.php?pdt=<?= $produit->id ?>"><button type="button" class="btn btn-sm btn-warning">Voir plus</button></a>
+                </div>
+                <small class="text" style="font-weight: bold;"><?= $produit->prix ?> CFA</small>
+              </div>
+            </div>
+          </div>
+        </div>
+  <?php endforeach; ?>
+
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
 
 <section id="footer">
   <div class="footer">
