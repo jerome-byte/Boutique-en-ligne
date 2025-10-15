@@ -1,18 +1,32 @@
 <?php
 
-require_once("config/connexion.php"); // Remonte au dossier parent (htdocs/) puis va dans config/
+
+
+require_once("config/connexion.php");
 require_once("config/commandes.php");
 
-$Produits=afficher();
+$produit_principal = null;
+$produits_similaires = [];
+$id = null;
 
-if(isset($_GET['pdt'])){
+if(isset($_GET['pdt']) && is_numeric($_GET['pdt']))
+{
+    $id = $_GET['pdt'];
     
-    if(!empty($_GET['pdt']) OR is_numeric($_GET['pdt']))
-    {
-        $id = $_GET['pdt'];
+    // 1. Récupérer le produit principal (celui qui est cliqué)
+    $produit_principal = getUnProduit($id); 
 
+    if($produit_principal){
+        // 2. Récupérer les produits similaires (4 au hasard, différents du principal)
+        $produits_similaires = getProduitsSimilaires($id, 4);
     }
+} else {
+    // Rediriger ou gérer l'erreur si aucun ID n'est fourni
+    header('Location: index.php');
+    exit();
 }
+
+
 
 ?>
 
@@ -181,6 +195,35 @@ user-select: none;
     </div>
 </div>
 </div>
+
+<?php if (count($produits_similaires) > 0) { ?>
+<div class="container mt-5">
+    <h3 class="mb-4 text-center">Produits Similaires</h3>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        
+        <?php foreach($produits_similaires as $similaire) { ?>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="<?= $similaire->image ?>" style="width: 100%; height: 200px; object-fit: cover;" class="card-img-top">
+                
+                <div class="card-body">
+                    <h5 class="card-title"><?= $similaire->nom ?></h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="produit.php?pdt=<?= $similaire->id ?>" class="btn btn-sm btn-outline-secondary">Voir</a>
+                        </div>
+                        <small class="text-muted"><?= $similaire->prix ?> CFA</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
+
+    </div>
+</div>
+<?php } ?>
+
+
 
 </main>
 <br>

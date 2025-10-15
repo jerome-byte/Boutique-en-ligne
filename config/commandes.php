@@ -97,6 +97,38 @@ function getAdmin($email, $password){
 
   }
 
+  // Nouvelle fonction pour récupérer UN produit par son ID
+function getUnProduit($id)
+{
+    if (require("connexion.php")) {
+      global $pdo; 
+        $req = $pdo->prepare("SELECT * FROM produits WHERE id=?");
+        $req->execute(array($id));
+
+        if ($req->rowCount() == 1) {
+            return $req->fetch(PDO::FETCH_OBJ);
+        } else {
+            return false;
+        }
+    }
+}
+
+// Nouvelle fonction pour récupérer des produits SIMILAIRES
+function getProduitsSimilaires($current_id, $limit = 4)
+{
+    if (require("connexion.php")) {
+      global $pdo; 
+        // Exclut le produit actuellement affiché (id != ?)
+        // Et prend un nombre limité de produits (LIMIT)
+        $req = $pdo->prepare("SELECT * FROM produits WHERE id != ? ORDER BY RAND() LIMIT ?");
+        $req->bindParam(1, $current_id, PDO::PARAM_INT);
+        $req->bindParam(2, $limit, PDO::PARAM_INT);
+        $req->execute();
+
+        return $req->fetchAll(PDO::FETCH_OBJ);
+    }
+}
+
 
 
 ?>
