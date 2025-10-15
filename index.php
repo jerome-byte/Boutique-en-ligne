@@ -154,7 +154,7 @@ $Produits = afficher();
         <div class="col">
           <div class="card shadow-sm">
             <h3><?= $produit->nom ?></h3>
-            <img src="<?= $produit->image ?>" style="width: 100% ,height: 100% ,object-fit: cover ,top: 0 ,left: 0">
+            <img src="<?= $produit->image ?>" style="width: 70% ,height: 70% ,object-fit: cover ,top: 0 ,left: 0">
 
             <div class="card-body">
                <p class="card-text"><?= substr($produit->description, 0, 160); ?>...</p>
