@@ -33,7 +33,7 @@ $Produits = afficher();
     width: 100%;
     padding-top: 100%; 
     position: relative;
-    overflow: hidden; /* Cache les parties de l'image qui débordent du carré */
+   
 }
 
 .image-produit-fixe img {
