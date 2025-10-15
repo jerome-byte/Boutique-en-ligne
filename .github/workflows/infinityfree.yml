@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4 #  Action pour cloner votre dépôt
       
       - name: Sync files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4 #  Action FTP recommandée
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0 #  Action FTP recommandée
         with:
           server: ftpupload.net # Hôte FTP d'InfinityFree
           username: ${{ secrets.FTP_USERNAME }}
