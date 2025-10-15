@@ -210,9 +210,9 @@ user-select: none;
                     <h5 class="card-title"><?= $similaire->nom ?></h5>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="produit.php?pdt=<?= $similaire->id ?>" class="btn btn-sm btn-outline-secondary">Voir</a>
+                            <a href="produit.php?pdt=<?= $similaire->id ?>" class="btn btn-sm btn-success">Voir</a>
                         </div>
-                        <small class="text-muted"><?= $similaire->prix ?> CFA</small>
+                        <small class="text"><?= $similaire->prix ?> CFA</small>
                     </div>
                 </div>
             </div>
