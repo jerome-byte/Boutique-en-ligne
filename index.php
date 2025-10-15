@@ -24,10 +24,7 @@ $Produits = afficher();
 
 <style>
 
-  header{
-    background-color: purple;
-    
-  }
+  
 
   body{
     font-family: Arial, Helvetica, sans-serif;
@@ -37,6 +34,14 @@ $Produits = afficher();
   .card shadow-sm:focus{
     box-shadow:  4px 4px 4px 4px greenyellow;
   }
+
+  .produit-vignette {
+    width: 60%; 
+    height: auto; /* Maintient le ratio */
+    object-fit: cover;
+    display: block; /* Aide à centrer si nécessaire */
+    margin: 0 auto; /* Optionnel : pour centrer l'image si elle est dans un bloc */
+}
   .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -53,7 +58,7 @@ $Produits = afficher();
 
 
 #footer{
-    background-color: #885117;
+    background-color: #212529;
     padding: 40px;
 }
 
@@ -79,7 +84,7 @@ $Produits = afficher();
 }
 
 .page h3{
-    color: rgb(231, 109, 9);
+    color: green;
 }
 
 .send input{
@@ -94,7 +99,7 @@ $Produits = afficher();
     padding: 19px;
     border: none;
     border-top-right-radius: 30px;
-    background-color: rgb(231, 109, 9);
+    background-color:green;
     color: #ddd;
     font-weight: bold;
     font-size: 14px;
@@ -143,6 +148,7 @@ $Produits = afficher();
   <div class="navbar navbar-dark bg-grey shadow-sm">
     <div class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <strong>OptiStore</strong>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -162,14 +168,15 @@ $Produits = afficher();
       <?php foreach($Produits as $produit): ?> 
         <div class="col">
           <div class="card shadow-sm">
+            
+            <img src="<?= $produit->image ?>" class="produit-vignette">
             <h3><?= $produit->nom ?></h3>
-            <img src="<?= $produit->image ?>" style="width: 60% ,height: 60% ,object-fit: cover ,top: 0 ,left: 0">
 
             <div class="card-body">
                <p class="card-text"><?= substr($produit->description, 0, 160); ?>...</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="produit.php?pdt=<?= $produit->id ?>"><button type="button" class="btn btn-sm btn-succes" style="width: 40%;">Voir plus</button></a>
+                  <a href="produit.php?pdt=<?= $produit->id ?>"><button type="button" class="btn btn-sm btn-success">Voir plus</button></a>
                 </div>
                 <small class="text" style="font-weight: bold;"><?= $produit->prix ?> CFA</small>
               </div>
