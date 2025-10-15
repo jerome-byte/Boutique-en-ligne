@@ -63,7 +63,7 @@ $Produits = afficher();
 
 #footer{
     background-color: #212529;
-    padding: 40px;
+    padding: 20px;
 }
 
 .footer{
@@ -72,13 +72,13 @@ $Produits = afficher();
    flex-wrap: wrap;
    gap: 30px;
    color: #ddd;
-   font-size: 20px;
+   font-size: 15px;
    
 }
 
 .footer h3{
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
@@ -109,7 +109,7 @@ $Produits = afficher();
 }
 .icons ion-icon{
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
     padding-left: 14px;
     padding-top: 5px;
     transition: 0.3s ease;
@@ -166,7 +166,7 @@ $Produits = afficher();
           <div class="card shadow-sm">
             
             <img src="<?= $produit->image ?>" class="produit-vignette">
-            <h3><?= $produit->nom ?></h3>
+            <h3 align="center"><?= $produit->nom ?></h3>
 
             <div class="card-body">
                <p class="card-text"><?= substr($produit->description, 0, 160); ?>...</p>
