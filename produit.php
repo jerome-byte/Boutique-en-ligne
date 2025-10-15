@@ -24,7 +24,7 @@ if(isset($_GET['pdt'])){
 <meta name="description" content="">
 <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.80.0">
-<title>Boutique</title>
+<title>OptiStore</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
@@ -146,7 +146,7 @@ user-select: none;
 <div class="navbar navbar-dark bg-dark shadow-sm">
 <div class="container">
     <a href="#" class="navbar-brand d-flex align-items-center">
-    <strong>Boutique</strong>
+    <strong>OptiStore</strong>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

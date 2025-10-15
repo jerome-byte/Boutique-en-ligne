@@ -15,7 +15,7 @@ $Produits = afficher();
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
-    <title>Boutique</title>
+    <title>OptiStore</title>
       <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     
@@ -27,6 +27,15 @@ $Produits = afficher();
   header{
     background-color: purple;
     
+  }
+
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff;
+  }
+
+  .card shadow-sm:focus{
+    box-shadow:  4px 4px 4px 4px greenyellow;
   }
   .bd-placeholder-img {
     font-size: 1.125rem;
@@ -134,7 +143,7 @@ $Produits = afficher();
   <div class="navbar navbar-dark bg-grey shadow-sm">
     <div class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
-        <strong>Boutique</strong>
+        <strong>OptiStore</strong>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -154,13 +163,13 @@ $Produits = afficher();
         <div class="col">
           <div class="card shadow-sm">
             <h3><?= $produit->nom ?></h3>
-            <img src="<?= $produit->image ?>" style="width: 70% ,height: 70% ,object-fit: cover ,top: 0 ,left: 0">
+            <img src="<?= $produit->image ?>" style="width: 60% ,height: 60% ,object-fit: cover ,top: 0 ,left: 0">
 
             <div class="card-body">
                <p class="card-text"><?= substr($produit->description, 0, 160); ?>...</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="produit.php?pdt=<?= $produit->id ?>"><button type="button" class="btn btn-sm btn-warning">Voir plus</button></a>
+                  <a href="produit.php?pdt=<?= $produit->id ?>"><button type="button" class="btn btn-sm btn-succes" style="width: 40%;">Voir plus</button></a>
                 </div>
                 <small class="text" style="font-weight: bold;"><?= $produit->prix ?> CFA</small>
               </div>
