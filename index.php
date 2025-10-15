@@ -24,7 +24,11 @@ $Produits = afficher();
 
 <style>
 
-  
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
 
   body{
     font-family: Arial, Helvetica, sans-serif;
