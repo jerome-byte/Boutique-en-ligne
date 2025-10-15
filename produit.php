@@ -71,14 +71,6 @@ user-select: none;
     font-weight: bold;
 }
 
-.page a{
-    text-decoration: none;
-    color: #ddd;
-}
-
-.page h3{
-    color: green;
-}
 
 .send input{
     padding: 15px;
