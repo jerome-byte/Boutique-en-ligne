@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+require_once("../config/connexion.php"); // Remonte au dossier parent (htdocs/) puis va dans config/
+require_once("../config/commandes.php");
+
 if(!isset($_SESSION['xRttpHo0greL39']))
 {
     header("Location: ../login.php");
@@ -11,7 +14,7 @@ if(empty($_SESSION['xRttpHo0greL39']))
     header("Location: ../login.php");
 }
 
-require("../config/commandes.php");
+
 
 $produits = afficher();
 
