@@ -1,6 +1,10 @@
 <?php
 
-require("config/commandes.php");
+require_once("config/connexion.php"); 
+
+
+require_once("config/commandes.php"); 
+
 
   $Produits=afficher();
 

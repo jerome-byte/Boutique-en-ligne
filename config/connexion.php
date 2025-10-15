@@ -15,7 +15,8 @@ try {
 
 } catch (Exception $e) 
 {
-	$e->getMessage();
+	    die("Erreur de connexion à la BDD : " . $e->getMessage()); 
+
 }
     
     
