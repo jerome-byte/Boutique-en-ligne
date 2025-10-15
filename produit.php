@@ -198,7 +198,7 @@ user-select: none;
 
 <?php if (count($produits_similaires) > 0) { ?>
 <div class="container mt-5">
-    <h3 class="mb-4 text-center">Produits Similaires</h3>
+    <h3 class="mb-4 text-center"> Autres Produits </h3>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
         
         <?php foreach($produits_similaires as $similaire) { ?>
