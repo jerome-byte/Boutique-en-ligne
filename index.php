@@ -20,37 +20,17 @@ $Produits = afficher();
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
     <title>Boutique</title>
+      <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 
 <style>
 
-.image-produit-fixe {
-    /* Définit une hauteur de 100% par rapport à la largeur, créant un conteneur carré (Ratio 1:1) */
-    width: 100%;
-    padding-top: 100%; 
-    position: relative;
-    overflow: hidden;
-   
-}
-
-.image-produit-fixe img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* La clé : redimensionne l'image pour remplir le conteneur et la rogne si nécessaire */
-    object-fit: cover; 
-}
-
-
   header{
     background-color: purple;
+    
   }
   .bd-placeholder-img {
     font-size: 1.125rem;
@@ -81,7 +61,6 @@ $Produits = afficher();
    font-size: 20px;
    
 }
-
 
 .footer h3{
     text-transform: uppercase;
@@ -142,55 +121,33 @@ $Produits = afficher();
     
 <header >
   <div class="collapse bg-grey" id="navbarHeader">
-</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-white">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <ul class="list-unstyled">
+            <li><a href="login.php" class="text-white">Se connecter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="navbar navbar-dark bg-grey shadow-sm">
     <div class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
         <strong>Boutique</strong>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
   </div>
 </header>
 
 <main>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-      <?php foreach($Produits as $produit): ?> 
-        <div class="col">
-          <div class="card shadow-sm">
-            
-            <div class="image-produit-fixe">
-                <img src="<?= $produit->image ?>" 
-                     alt="<?= $produit->nom ?>" 
-                     class="card-img-top"> </div>
-            <h3><?= $produit->nom ?></h3>
-            
-            <div class="card-body">
-               <p class="card-text"><?= substr($produit->description, 0, 160); ?>...</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a href="produit.php?pdt=<?= $produit->id ?>"><button type="button" class="btn btn-sm btn-warning">Voir plus</button></a>
-                </div>
-                <small class="text" style="font-weight: bold;"><?= $produit->prix ?> CFA</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      <?php endforeach; ?>
-
-
-      </div>
-    </div>
-  </div>
-
-</main>
 
 <section id="footer">
   <div class="footer">
