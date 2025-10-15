@@ -120,7 +120,7 @@ function getProduitsSimilaires($current_id, $limit = 4)
       global $pdo; 
         // Exclut le produit actuellement affiché (id != ?)
         // Et prend un nombre limité de produits (LIMIT)
-        $req = $pdo->prepare("SELECT * FROM produits WHERE id = ? ORDER BY RAND() LIMIT ?");
+        $req = $pdo->prepare("SELECT * FROM produits WHERE id != ? ORDER BY RAND() LIMIT ?");
         $req->bindParam(1, $current_id, PDO::PARAM_INT);
         $req->bindParam(2, $limit, PDO::PARAM_INT);
         $req->execute();

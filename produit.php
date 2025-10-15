@@ -171,26 +171,29 @@ user-select: none;
 
     <div class="row">
 <div class="col-md-2"></div>
-<?php foreach($Produits as $produit){ if($produit->id == $id){ ?> 
-        <div class="col-md-8">
-            <div class="card shadow-sm" >
-             
-                <img src="<?= $produit->image ?>" style="width: 100%">
-                   <h3 align="center"><?= $produit->nom ?></h3>
+<?php if($produit_principal){ // Vérifie si le produit a été trouvé par l'ID ?>
+    <div class="col-md-8">
+        <div class="card shadow-sm" >
+            
+            <img src="<?= $produit_principal->image ?>" style="width: 100%">
+            <h3 align="center"><?= $produit_principal->nom ?></h3>
 
-                <div class="card-body">
-                <p class="card-text"><?= $produit->description ?></p>
+            <div class="card-body">
+                <p class="card-text"><?= $produit_principal->description ?></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                    <a href="produit.php?pdt=<?= $produit->id ?>"><button type="button" class="btn btn-sm btn-success">Commander</button></a>
+                        <a href="#"><button type="button" class="btn btn-sm btn-success">Commander</button></a>
                     </div>
-                    <small class="text" style="font-weight: bold;"><?= $produit->prix ?> CFA</small>
-                </div>
+                    <small class="text" style="font-weight: bold;"><?= $produit_principal->prix ?> CFA</small>
                 </div>
             </div>
-            </div>
-<?php }} ?>
-
+        </div>
+    </div>
+<?php } else { ?>
+    <div class="col-md-8 text-center">
+        <p class="alert alert-warning">Désolé, ce produit n'existe pas ou l'ID est incorrect.</p>
+    </div>
+<?php } ?>
 <div class="col-md-2"></div>
     </div>
 </div>
