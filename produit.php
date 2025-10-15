@@ -32,6 +32,13 @@ if(isset($_GET['pdt'])){
 
 
 <style>
+
+header{
+    background-color: purple;
+    
+  }
+
+
 .bd-placeholder-img {
 font-size: 1.125rem;
 text-anchor: middle;
@@ -45,6 +52,75 @@ user-select: none;
     font-size: 3.5rem;
 }
 }
+
+
+#footer{
+    background-color: #885117;
+    padding: 40px;
+}
+
+.footer{
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   gap: 30px;
+   color: #ddd;
+   font-size: 20px;
+   
+}
+
+.footer h3{
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.page a{
+    text-decoration: none;
+    color: #ddd;
+}
+
+.page h3{
+    color: rgb(231, 109, 9);
+}
+
+.send input{
+    padding: 15px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 30px;
+    float: left;
+}
+
+.send button{
+    padding: 19px;
+    border: none;
+    border-top-right-radius: 30px;
+    background-color: rgb(231, 109, 9);
+    color: #ddd;
+    font-weight: bold;
+    font-size: 14px;
+
+}
+
+.icons{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.icons ion-icon{
+    color: #fff;
+    font-size: 30px;
+    padding-left: 14px;
+    padding-top: 5px;
+    transition: 0.3s ease;
+}
+.icons ion-icon:hover{
+    color: #b4c929;;
+
+}
+
+
 </style>
 
 
@@ -113,7 +189,46 @@ user-select: none;
 </main>
 <br>
 <br>
-<br>
-<br>
+
+<section id="footer">
+  <div class="footer">
+
+    
+    <div class="heure">
+      <h3>Jours </h3>
+      <p>Lundi-vendredi   </p>
+      <p>Samedi </p>
+      <p>Dimanche </p>
+    </div>
+    <div class="heure">
+      <h3>  Heures</h3>
+      <p>   08h - 23h</p>
+      <p> 10h - 21h</p>
+      <p> 13h - 23h</p>
+    </div>
+    <div class="promo">
+      <h3>Live Days</h3>
+      <p>Lundi 09h - 11h</p>
+      <p>Vendredi 20h - 22h</p>
+      
+    </div>
+    <div class=" send">
+      <h3>envoyer un avis</h3>
+      <input type="text"  placeholder="laissé un avis" >
+      <button>Envoyer</button>
+    </div>
+  </div>
+            
+    <div class="icons">
+      <a href=""><ion-icon name="logo-facebook"></ion-icon></a>
+      <a href=""><ion-icon name="logo-instagram"></ion-icon></a>
+      <a href=""><ion-icon name="logo-google"></ion-icon></a>
+      <a href=""><ion-icon name="logo-twitter"></ion-icon></a>
+      <a href=""><ion-icon name="logo-Tiktok"></ion-icon></a>
+      <a href="https://wa.me/22897324256"><ion-icon name="logo-whatsApp"></ion-icon></a>
+    </div>
+            
+</section>
+
 </body>
 </html>
