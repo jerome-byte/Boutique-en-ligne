@@ -207,7 +207,7 @@ user-select: none;
         <?php foreach($produits_similaires as $similaire) { ?>
         <div class="col">
             <div class="card shadow-sm">
-                <img src="<?= $similaire->image ?>" style="width: 100%; height: 200px; object-fit: cover;" class="card-img-top">
+                <img src="<?= $similaire->image ?>" style="width: 100%; height: auto; object-fit: cover;" class="card-img-top">
                 
                 <div class="card-body">
                     <h5 class="card-title"><?= $similaire->nom ?></h5>
