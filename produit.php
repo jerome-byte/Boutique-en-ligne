@@ -189,8 +189,9 @@ user-select: none;
     <div class="col-md-8">
         <div class="card shadow-sm" >
             
-            <img src="<?= $produit_principal->image ?>" style="width: 100%">
-            <h3 align="center"><?= $produit_principal->nom ?></h3>
+        <img src="<?= $produit_principal->image ?>" 
+            style="width: 60%; max-height: 500px; object-fit: contain; display: block; margin: 0 auto;">           
+             <h3 align="center"><?= $produit_principal->nom ?></h3>
 
             <div class="card-body">
                 <p class="card-text"><?= $produit_principal->description ?></p>
