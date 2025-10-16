@@ -178,7 +178,7 @@ user-select: none;
 
 <main>
 
-<div class="album py-5 bg-light">
+<div class="album py-3 bg-light">
 
 <a href="index.php"><button type="button" class="btn btn-sm btn-success">Retour</button></a>
 <div class="container" style="display: flex; justify-content: center">
@@ -209,13 +209,11 @@ user-select: none;
     </div>
 <?php } ?>
 <div class="col-md-2"></div>
-    </div>
-</div>
-</div>
+
 
 <?php if (count($produits_similaires) > 0) { ?>
-<div class="container mt-5">
-    <h3 class="mb-4 text-center"> Autres Produits </h3>
+<div class="container mt-3">
+    <h3 class="mb-4 text-center"> Produits similaires </h3>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
         
         <?php foreach($produits_similaires as $similaire) { ?>
