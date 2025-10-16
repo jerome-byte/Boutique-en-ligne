@@ -114,19 +114,28 @@ function getUnProduit($id)
 }
 
 // Nouvelle fonction pour récupérer des produits SIMILAIRES
-function getProduitsSimilaires($current_id, $limit = 4)
+function getProduitsSimilaires($current_id, $categorie, $limit = 4)
 {
-    if (require("connexion.php")) {
-      global $pdo; 
-        // Exclut le produit actuellement affiché (id != ?)
-        // Et prend un nombre limité de produits (LIMIT)
-        $req = $pdo->prepare("SELECT * FROM produits WHERE id != ? ORDER BY RAND() LIMIT ?");
+    // Assurez-vous que cette ligne rend votre variable $pdo disponible
+    if (require("connexion.php")) { 
+        global $pdo; 
+        
+        // La requête SQL recherche les produits dont le 'nom' contient le mot-clé, 
+        // tout en excluant le produit actuellement affiché.
+        $req = $pdo->prepare("SELECT * FROM produits WHERE id != ? AND nom LIKE ? ORDER BY RAND() LIMIT ?");
+        
+        // On prépare le mot-clé pour SQL avec des jokers (%) pour la recherche LIKE
+        $mot_cle_sql = "%" . $categorie . "%";
+
         $req->bindParam(1, $current_id, PDO::PARAM_INT);
-        $req->bindParam(2, $limit, PDO::PARAM_INT);
+        $req->bindParam(2, $mot_cle_sql, PDO::PARAM_STR);
+        $req->bindParam(3, $limit, PDO::PARAM_INT);
+        
         $req->execute();
 
         return $req->fetchAll(PDO::FETCH_OBJ);
     }
+    return []; // Retourne un tableau vide en cas d'échec
 }
 
 

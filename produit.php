@@ -5,6 +5,7 @@
 require_once("config/connexion.php");
 require_once("config/commandes.php");
 
+
 $produit_principal = null;
 $produits_similaires = [];
 $id = null;
@@ -13,18 +14,30 @@ if(isset($_GET['pdt']) && is_numeric($_GET['pdt']))
 {
     $id = $_GET['pdt'];
     
-    // 1. Récupérer le produit principal (celui qui est cliqué)
+    // 1. Récupération du produit principal par ID
     $produit_principal = getUnProduit($id); 
 
     if($produit_principal){
-        // 2. Récupérer les produits similaires (4 au hasard, différents du principal)
-        $produits_similaires = getProduitsSimilaires($id, 4);
+        
+        // --- LOGIQUE POUR DÉFINIR LA CATÉGORIE PAR LE NOM ---
+        $nom_complet = $produit_principal->nom;
+        // explode sépare le nom en mots (ex: "T-shirt Coton" devient ['T-shirt', 'Coton'])
+        $mots = explode(' ', $nom_complet);
+        
+        // Nous prenons le PREMIER mot comme critère de recherche ('T-shirt')
+        $categorie_recherche = $mots[0]; 
+        
+        // 2. Appel de la fonction des produits similaires (avec le critère de recherche)
+        // La fonction prend maintenant 3 arguments : (ID, Catégorie, Limite)
+        $produits_similaires = getProduitsSimilaires($id, $categorie_recherche, 4);
     }
 } else {
-    // Rediriger ou gérer l'erreur si aucun ID n'est fourni
+    // Redirection si ID manquant ou invalide
     header('Location: index.php');
     exit();
 }
+
+
 
 
 
@@ -87,6 +100,7 @@ user-select: none;
     text-transform: uppercase;
     margin-bottom: 10px;
     font-weight: bold;
+    color: green;
 }
 
 
@@ -182,7 +196,7 @@ user-select: none;
                 <p class="card-text"><?= $produit_principal->description ?></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="#"><button type="button" class="btn btn-sm btn-success">Commander</button></a>
+                        <a href="https://wa.me/22897324256"><button type="button" class="btn btn-sm btn-success">Commander</button></a>
                     </div>
                     <small class="text" style="font-weight: bold;"><?= $produit_principal->prix ?> CFA</small>
                 </div>
